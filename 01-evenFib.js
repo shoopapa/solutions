@@ -21,7 +21,7 @@
 
   const evenFibs = []
   const max = 4e6
-  const nextFib= (a,b) => {
+  const nextFib = (a,b) => {
     if (b > max) return b
     const c = a+b
     if (c%2 === 0) {
