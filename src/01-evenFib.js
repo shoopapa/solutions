@@ -4,32 +4,28 @@
 
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 {//using loops 
-  const evenFibs = []
-  let a = 0
-  let b = 1
+  let a = 0, b = 1, acc = 0
   while ( b < 4e6 ) {
-    const c = a+b
-    if (c%2 === 0) {
-      evenFibs.push( c )
-    }
-    a = b
+    const c = a+b // make next
+    if (c%2 === 0) acc += c // if even add it to accumulator 
+    a = b // shift up vars
     b = c
   }
-  console.log("using loops", evenFibs.reduce( (a,b)=> a+b ))
+  console.log("using loops", acc) //display answer
 }
+
 {//uinsg recusion
 
   const evenFibs = []
   const max = 4e6
+ let acc = 0
   const nextFib = (a,b) => {
     if (b > max) return b
     const c = a+b
-    if (c%2 === 0) {
-      evenFibs.push( c )
-    }
+    if (c%2 === 0) acc += c 
     return nextFib(b,c)
   }
   
-  nextFib(0,1)
-  console.log("using recussion", evenFibs.reduce( (a,b)=> a+b ))
+  console.log(nextFib(0,1))
+  // console.log("using recussion", evenFibs.reduce( (a,b)=> a+b ))
 }
